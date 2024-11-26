@@ -3,19 +3,74 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f2f2f2;
+  --foreground: #282828;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
   }
-}
+} */
 
 body {
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+.user-name.text-sm{
+  font-size: 10px!important;
+}
+@layer base {
+  html {
+    scrollbar-gutter: stable;
+  }
+  /* Hide the scrollbar by default */
+  ::-webkit-scrollbar {
+    width: 4px; /* Very thin scrollbar */
+    height: 4px; /* Thin horizontal scrollbar (if needed) */
+    opacity: 1; /* Make it invisible by default */
+    transition: opacity 0.3s ease; /* Smooth transition for visibility */
+  }
+
+  /* Customize the thumb */
+  ::-webkit-scrollbar-thumb {
+    background-color: #d1d5db; /* Tailwind Gray-300 */
+    border-radius: 9999px; /* Rounded edges */
+  }
+
+  /* Optional: Customize track (background) */
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+}
+.hide-scroll::-webkit-scrollbar {
+  display: none; /* Hides the scrollbar completely */
+}
+
+
+/* Style the pagination bullets */
+.swiper-pagination-bullet {
+  background-color: #ccc!important; 
+  opacity: 0.6; /* Make bullets slightly transparent */
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #282828!important; /* Active bullet color */
+  opacity: 1; /* Fully visible */
+}
+
+/* Position the pagination */
+.swiper-pagination {
+  bottom: -5px!important; /* Adjust vertical position */
+  text-align: center; /* Center align pagination */
+}
+
+/* Add hover effect */
+.swiper-pagination-bullet:hover {
+  transform: scale(1.2); /* Slightly enlarge on hover */
+  transition: transform 0.3s ease;
+}
+
