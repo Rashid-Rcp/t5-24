@@ -23,6 +23,9 @@ body {
 .user-name.text-sm{
   font-size: 10px!important;
 }
+.user-name.text-md{
+  font-size: 12px!important;
+}
 @layer base {
   html {
     scrollbar-gutter: stable;

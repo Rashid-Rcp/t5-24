@@ -7,13 +7,15 @@ const Header: React.FC = () => {
   return (
     <div className="shadow-md border-b-gray-100 border bg-t5-white">
       <div className="w-full px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between py-1">
-          <div>
+        <div className="py-1 flex items-center justify-between">
+          {/* Logo Section */}
+          <div className="w-1/3 lg:w-1/6">
             <img src="/img/T5-logo.png" alt="Logo" className="h-16 w-auto" />
           </div>
 
-          <div className="flex-1 mx-4 relative">
-            <div className="relative max-w-[700px] w-full mx-auto">
+          {/* Search Bar Section */}
+          <div className="flex-1 relative">
+            <div className="relative max-w-2xl mx-auto">
               <input
                 type="text"
                 placeholder="Search for Discussion, Podcast"
@@ -26,7 +28,8 @@ const Header: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex space-x-4 text-t5-black">
+          {/* Icon Buttons Section */}
+          <div className="w-1/3 lg:w-1/4 flex justify-end items-center space-x-4 text-t5-black">
             <button className="p-1 rounded-full hover:bg-gray-200 border-gray-500 border">
               <AiOutlineUser size={25} />
             </button>

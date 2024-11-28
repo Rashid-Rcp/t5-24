@@ -9,8 +9,8 @@ type listensProps = {
 export default function Listens({listens}:listensProps) {
   return (
     <div className='flex'>
-      <div className='text-sm me-1'>{listens}</div>
       <BsSoundwave size={20} />
+      <div className='text-xs me-1'>{listens}</div>
     </div>
   )
 }

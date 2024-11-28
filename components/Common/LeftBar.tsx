@@ -8,13 +8,13 @@ import { PiChatsCircleThin } from "react-icons/pi";
 import { CiCirclePlus } from "react-icons/ci";
 
 import MenuWraper from "./MenuWraper";
-import Devider from "./Devider";
+import Devider from "./Divider";
 import MenuTitle from "./MenuTitle";
 import ClubsList from "../Clubs/ClubsList";
 
 export default function LeftBar() {
   return (
-    <aside className="w-1/4 lg:w-1/5 max-h-screen overflow-hidden hover:overflow-y-auto" style={{scrollbarGutter:'stable'}}>
+    <aside className="w-1/5 lg:w-1/6 max-h-screen overflow-hidden hover:overflow-y-auto" style={{scrollbarGutter:'stable'}}>
       <SectionWrapper>
         <MenuWraper>
           <MenuItem Icon={CiHome} text="Home" />

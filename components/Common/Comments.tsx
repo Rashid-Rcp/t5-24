@@ -8,8 +8,8 @@ type commentsProps = {
 export default function Comments({ comments }: commentsProps) {
   return (
     <div className="flex">
-      <div className="text-sm me-1">{comments}</div>
       <BsChat  size={20} />
+      <div className="text-xs me-1">{comments}</div>
     </div>
   );
 }

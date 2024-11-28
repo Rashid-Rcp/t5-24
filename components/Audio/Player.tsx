@@ -55,7 +55,7 @@ export default function Player({ audioUrl }: PlayerProps) {
   };
 
   return (
-    <div>
+    <div className="relative mb-2">
     <div className="flex align-items-center flex-row items-center">
       <button onClick={togglePlay} className="btn me-1">
         {isPlaying ? (
@@ -69,7 +69,7 @@ export default function Player({ audioUrl }: PlayerProps) {
         <audio ref={audioRef} src={audioUrl} />
       </div>
     </div>
-    <div className="text-xs text-right w-full">3.00</div>
+    <div className="text-xs text-right w-full absolute">3.00</div>
     </div>
   );
 }

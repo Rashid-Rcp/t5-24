@@ -6,7 +6,7 @@ type MenuWraperProps = {
 export default function MenuWraper({ children }: MenuWraperProps) {
   return (
     <nav>
-      <ul className="space-y-4">{children}</ul>
+      <ul className="space-y-2">{children}</ul>
     </nav>
   );
 }
