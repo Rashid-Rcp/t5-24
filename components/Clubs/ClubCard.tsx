@@ -3,14 +3,18 @@ import { CiGlobe, CiLock } from "react-icons/ci";
 import { MdCalendarViewDay } from "react-icons/md";
 import { ClubInfo } from "@/Type/club";
 import JoinButton from "./JoinButton";
+import ClubCreated from "./ClubCreated";
+import ClubStatus from "./ClubStatus";
 
 interface ClubCardProps {
   showExtraDetails?: boolean;
-  clubInfo: ClubInfo;
+  showRole?: boolean;
 }
 
-
-export default function ClubCard({ showExtraDetails = false, clubInfo }: ClubCardProps) {
+export default function ClubCard({
+  showExtraDetails = false,
+  showRole = false,
+}: ClubCardProps) {
   return (
     <div className="px-0 py-0 my-0">
       <div className="flex items-center gap-2 mb-2">
@@ -23,18 +27,13 @@ export default function ClubCard({ showExtraDetails = false, clubInfo }: ClubCar
           {showExtraDetails && (
             <div className="flex items-center justify-between gap-2 text-xs text-t5-black">
               <div className="flex items-center gap-2">
-              <span className="flex items-center gap-1">
-                <MdCalendarViewDay size={12} />
-                {clubInfo.createdDate}
-              </span>
-              <span className="flex items-center gap-1">
-                {clubInfo.private ? <CiLock size={12} /> : <CiGlobe size={12} />}
-                {clubInfo.private ? 'Private' : 'Public'}
-              </span>
+                <ClubCreated />
+                <ClubStatus />
               </div>
-              <div>
+              <div className="flex items-end gap-2 flex-col">
+                {showRole && <span className="text-xs">You are a member</span>}
                 <JoinButton size="sm" />
-              </div>  
+              </div>
             </div>
           )}
         </div>

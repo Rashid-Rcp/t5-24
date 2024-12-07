@@ -1,14 +1,14 @@
-import React from 'react';
+import React from "react";
 
 interface JoinButtonProps {
-  size?: 'sm' | 'md' | 'lg';
+  size?: "sm" | "md" | "lg";
 }
 
-export default function JoinButton({ size = 'md' }: JoinButtonProps) {
+export default function JoinButton({ size = "md" }: JoinButtonProps) {
   const sizeClasses = {
-    sm: 'text-xs px-2 py-1',
-    md: 'text-sm px-3 py-1.5',
-    lg: 'text-base px-4 py-2'
+    sm: "text-xs px-2 py-1",
+    md: "text-sm px-3 py-1.5",
+    lg: "text-base px-8 py-1.5",
   };
 
   return (

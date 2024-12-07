@@ -34,7 +34,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${inter.variable} font-sans`}
+        className={`${inter.variable} font-sans overflow-hidden`}
       >
         {children}
       </body>

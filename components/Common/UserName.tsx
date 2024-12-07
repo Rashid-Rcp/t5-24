@@ -9,6 +9,6 @@ export default function UserName({name, size}:UserNameProp) {
     const sizeClass = size === 'sm' ? 'text-sm' : size === 'md' ? 'text-md' : 'text-lg';
 
   return (
-    <div className={`user-name truncate ${sizeClass} text-t5-black`} >{name}</div>
+    <div className={`user-name truncate ${sizeClass} text-t5-black text-center`} >{name}</div>
   )
 }

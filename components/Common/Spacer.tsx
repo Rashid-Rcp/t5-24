@@ -1,12 +1,14 @@
 import React from 'react';
 
 type SpacerProps = {
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'xs' | 'sm' | 'md' | 'lg';
 };
 
 export default function Spacer({ size = 'md' }: SpacerProps) {
   const getHeight = () => {
     switch (size) {
+      case 'xs':
+        return 'h-2 sm:h-4'; 
       case 'sm':
         return 'h-4 sm:h-6'; // 16px on mobile, 24px on desktop
       case 'md':

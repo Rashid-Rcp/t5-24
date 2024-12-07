@@ -22,6 +22,7 @@ import Spacer from "@/components/Common/Spacer";
 import Comment from "@/components/DiscussionPodcast/Comment";
 import ClubCard from "@/components/Clubs/ClubCard";
 import DiscussionCard from "@/components/DiscussionPodcast/DiscussionCard";
+import CommentVoteSection from "@/components/DiscussionPodcast/CommentVoteSection";
 export default function DiscussionPage() {
   return (
     <>
@@ -84,58 +85,18 @@ export default function DiscussionPage() {
                 }}
               />
             </ChatSectionWrapper>
+           
             <Divider />
-            <div className="flex items-center justify-start gap-4">
-              <ButtonSolid text="Comment" count={10} />
-              <ButtonSolid text="Votes" count={10} />
-              <ButtonSolid text="Share" />
-              <div className="flex-1 flex items-end justify-end">
-                <ButtonIcon icon={<FiMoreHorizontal />} />
-              </div>
-            </div>
-            <Spacer size="sm" />
-            <CommentBox />
-            <Comment
-              user={{
-                id: "1",
-                name: "@Rashid_Rcp",
-                dpUrl: "/img/demo/profilepic.png",
-              }}
-              comment="Sample comment text"
-              postedTime="2 hrs ago"
-            />
-            <Comment
-              user={{
-                id: "1",
-                name: "@Rashid_Rcp",
-                dpUrl: "/img/demo/profilepic.png",
-              }}
-              comment="Sample comment text"
-              postedTime="2 hrs ago"
-            />
-            <Comment
-              user={{
-                id: "1",
-                name: "@Rashid_Rcp",
-                dpUrl: "/img/demo/profilepic.png",
-              }}
-              comment="Sample comment text"
-              postedTime="2 hrs ago"
-            />
+
+            <CommentVoteSection/>
+
+
           </SectionWrapper>
         </MainContentHolder>
 
         <RightBar>
           <ClubCard
             showExtraDetails={true}
-            clubInfo={{
-              id: 1,
-              name: "The Lean Startup",
-              description: "Sample description",
-              imageUrl: "/img/demo/profilepic.png",
-              private: false,
-              createdDate: "12-12-2024",
-            }}
           />
           <Divider />
           <SectionTitle title="Related" />

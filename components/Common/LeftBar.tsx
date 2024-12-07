@@ -14,7 +14,7 @@ import ClubsList from "../Clubs/ClubsList";
 
 export default function LeftBar() {
   return (
-    <aside className="w-1/5 lg:w-1/6 max-h-screen overflow-hidden hover:overflow-y-auto" style={{scrollbarGutter:'stable'}}>
+    <aside className="w-1/5 lg:w-1/6 max-h-screen overflow-hidden hover:overflow-y-auto pb-24" style={{scrollbarGutter:'stable'}}>
       <SectionWrapper>
         <MenuWraper>
           <MenuItem Icon={CiHome} text="Home" />

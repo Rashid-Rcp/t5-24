@@ -35,16 +35,14 @@ export default function Home() {
         </MainContentHolder>
 
         <RightBar>
-         
-          <ClubSlides/>
+          <ClubSlides />
           <div className="h-2"></div>
           <SectionTitle title="Club Activiteis" />
-         
-          <ActivityCard/>
-          <ActivityCard/>
-          <ActivityCard/>
-          <ActivityCard/>
-          <ActivityCard/>
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
+          <ActivityCard />
         </RightBar>
       </MainContainer>
     </>

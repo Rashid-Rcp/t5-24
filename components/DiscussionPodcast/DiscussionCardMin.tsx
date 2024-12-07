@@ -31,44 +31,11 @@ export default function DiscussionCard({
         <p className="text-xs">@Lean Startup</p>
         <p className="text-xs">20 mins ago</p>
       </div>
-      <h1 className="text-base font-medium my-2">
+      <h2 className="text-base font-medium my-2 truncate">
         What is the cost of a Zudio franchise in India?
-      </h1>
+      </h2>
       <div className="my-0">
         <Player audioUrl="/audio/demo/file_example_OOG_1MG.ogg" />
-      </div>
-      <Subtile title="Participants" />
-      <div className="flex justify-between items-center">
-        <div className="flex flex-row gap-1 mt-2">
-          <ParticipantHolder>
-            <Dp url="/img/demo/profilepic.png" size="sm" />
-            <UserName name="Rashid csdidufsd nfij" size="sm" />
-          </ParticipantHolder>
-
-          <ParticipantHolder>
-            <Dp url="/img/demo/profilepic.png" size="sm" />
-            <UserName name="Rashid csdidufsd nfij" size="sm" />
-          </ParticipantHolder>
-
-          <ParticipantHolder>
-            <Dp url="/img/demo/profilepic.png" size="sm" />
-            <UserName name="Rashid csdidufsd nfij" size="sm" />
-          </ParticipantHolder>
-        </div>
-        <div className="flex gap-3">
-          {upComing ? (
-            <div className="flex flex-col gap-2">
-              <p className="text-xs text-t5-black">500 Interested</p>
-              <ButtonSolid text="Leave" />
-            </div>
-          ) : (
-            <>
-              <Discussion />
-              <Listens listens={100} />
-              <Comments comments={100} />
-            </>
-          )}
-        </div>
       </div>
     </div>
   );

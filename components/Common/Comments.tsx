@@ -7,9 +7,9 @@ type commentsProps = {
 
 export default function Comments({ comments }: commentsProps) {
   return (
-    <div className="flex">
+    <div className="flex items-center">
       <BsChat  size={20} />
-      <div className="text-xs me-1">{comments}</div>
+      <div className="text-xs ms-1">{comments}</div>
     </div>
   );
 }
