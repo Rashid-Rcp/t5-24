@@ -22,6 +22,7 @@ import { RiImageAddLine } from "react-icons/ri";
 import Subtile from "@/components/Common/Subtile";
 import ButtonSolid from "@/components/Common/ButtonSolid";
 import Spacer from "@/components/Common/Spacer";
+import UserSelect from "@/components/Common/UserSelect";
 
 export default function CreateClubPage() {
   return (
@@ -89,9 +90,9 @@ export default function CreateClubPage() {
                         <UserName name="You" size="sm" />
                       </ParticipantHolder>
                     </div>
-                    <button className="mb-4">
-                      <IoAddCircleOutline size={30} />
-                    </button>
+                    <div className="max-w-60 mb-4">
+                      <UserSelect onSelect={() => {}} selectedUsers={[]} placeholder="Select contributors..." />
+                    </div>
                   </div>
                 </div>
                 <div>

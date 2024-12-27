@@ -29,8 +29,20 @@ import Subtile from "@/components/Common/Subtile";
 import ButtonSolid from "@/components/Common/ButtonSolid";
 import Spacer from "@/components/Common/Spacer";
 import EnableFeature from "@/components/DiscussionPodcast/EnableFeature";
+import { DateTimePicker } from "@mui/x-date-pickers/DateTimePicker";
+
+import TextField from "@mui/material/TextField";
+import { useState } from "react";
+import dayjs from "dayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs/AdapterDayjs";
+import UserSelect from "@/components/Common/UserSelect";
 
 export default function CreateDiscussionPage() {
+  const [dateTime, setDateTime] = useState<dayjs.Dayjs | null>(null);
+  const [moderator, setModerator] = useState<string[]>([]);
+  const [participants, setParticipants] = useState<string[]>([]);
+
   return (
     <>
       <Header />
@@ -81,9 +93,13 @@ export default function CreateDiscussionPage() {
                       <Dp url="/img/demo/bg-placeholder.webp" size="sm" />
                     </ParticipantHolder>
                   </div>
-                  <button className="mb-0">
-                    <IoAddCircleOutline size={30} />
-                  </button>
+                  <div className="max-w-60">
+                    <UserSelect
+                      onSelect={() => {}}
+                      selectedUsers={[]}
+                      placeholder="Select a moderator..."
+                    />
+                  </div>
                 </div>
               </div>
               <div>
@@ -94,14 +110,46 @@ export default function CreateDiscussionPage() {
                       <Dp url="/img/demo/bg-placeholder.webp" size="sm" />
                     </ParticipantHolder>
                   </div>
-                  <button className="mb-0">
-                    <IoAddCircleOutline size={30} />
-                  </button>
+                  <div className="max-w-60">
+                    <UserSelect
+                      onSelect={() => {}}
+                      selectedUsers={[]}
+                      placeholder="Select participants..."
+                    />
+                  </div>
                 </div>
               </div>
               <div>
                 <Subtile title="Schedule Date" />
-                <input type="date" className="border-b border-t5-gray-200 focus:border-t5-black outline-none text-t5-black text-sm py-2 bg-transparent w-full" />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DateTimePicker
+                    value={dateTime}
+                    onChange={(newValue) => setDateTime(newValue)}
+                    slotProps={{
+                      textField: {
+                        variant: "standard",
+                        label: "",
+                        sx: {
+                          "& .MuiInputBase-root": {
+                            fontSize: "0.775rem",
+                            color: "#282828",
+                            "&::before": {
+                              borderBottom: "1px solid #e5e7eb",
+                            },
+                          },
+                        },
+                      },
+                    }}
+                  />
+                </LocalizationProvider>
+              </div>
+              <div>
+                <Subtile title="Duration" />
+                <select className="border-b border-t5-gray-200 focus:border-t5-black outline-none text-t5-black text-sm py-2 bg-transparent w-full px-1 max-w-40 rounded-sm">
+                  <option value="1">1 Hour</option>
+                  <option value="2">2 Hours</option>
+                  <option value="3">3 Hours</option>
+                </select>
               </div>
 
               <div className="flex items-center gap-2 flex-wrap w-full">

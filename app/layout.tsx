@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 // import localFont from "next/font/local";
-import { Inter } from 'next/font/google'
- 
+import { Inter } from "next/font/google";
+import React from "react";
+import { ToastContainer } from "react-toastify";
 
 import "./globals.css";
+import QueryProviders from "@/utils/providers";
 
 // const geistSans = localFont({
 //   src: "./fonts/GeistVF.woff",
@@ -17,9 +19,9 @@ import "./globals.css";
 // });
 
 const inter = Inter({
-  subsets: ['latin'],
-  variable: '--font-inter',
-})
+  subsets: ["latin"],
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
   title: "T5",
@@ -33,10 +35,21 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${inter.variable} font-sans overflow-hidden`}
-      >
-        {children}
+      <body className={`${inter.variable} font-sans overflow-hidden`}>
+        <QueryProviders>{children}</QueryProviders>
+        <ToastContainer
+          position="bottom-center"
+          autoClose={5000}
+          hideProgressBar={true}
+          newestOnTop={false}
+          closeOnClick={false}
+          rtl={false}
+          pauseOnFocusLoss
+          draggable
+          pauseOnHover
+          theme="dark"
+          icon={false}
+        />
       </body>
     </html>
   );

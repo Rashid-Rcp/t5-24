@@ -14,10 +14,12 @@ import RightBar from "@/components/Common/RightBar";
 import ClubCard from "@/components/Clubs/ClubCard";
 import ClubSlides from "@/components/Clubs/ClubSlides";
 import ActivityCard from "@/components/Clubs/ActivityCard";
+import Preference from "@/components/DiscussionPodcast/Preference";
 export default function Home() {
   return (
     <>
       <Header />
+      <Preference/>
       <MainContainer>
         <LeftBar />
 

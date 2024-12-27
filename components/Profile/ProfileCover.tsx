@@ -26,7 +26,8 @@ const ProfileCover = () => {
 
         {/* Club Details */}
         <div className="ml-36 flex-1">
-          <h1 className="text-2xl font-bold mb-1  text-t5-black">John Doe</h1>
+          <h1 className="text-2xl font-bold mb-0  text-t5-black">John Doe</h1>
+          <p  className="text-xs text-t5-black mb-1">@john_doe</p>
           <p className="text-sm text-t5-black font-medium mb-1">
             150 Memberships
           </p>
