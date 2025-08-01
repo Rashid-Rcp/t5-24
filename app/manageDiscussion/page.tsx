@@ -13,11 +13,10 @@ import Preference from "@/components/DiscussionPodcast/Preference";
 import axiosInstance from "@/utils/axiosInstance";
 import { cookies } from "next/headers";
 import DiscussionCardSkeleton from "@/components/DiscussionPodcast/DiscussionCardSkeleton";
-import Link from "next/link";
 
-export default async function Home() {
+export default async function ManageDiscussion() {
   const cookieStore = await cookies();
-  const feeds = await axiosInstance.get("/feed/all", {
+  const discussions = await axiosInstance.get("/discussion/manage/all?page=1&limit=10&sort=createdAt:desc", {
     withCredentials: true,
     headers: {
       Cookie: cookieStore
@@ -26,7 +25,6 @@ export default async function Home() {
         .join("; "),
     },
   });
-  console.log(feeds.data);
   return (
     <>
       <Header />
@@ -35,30 +33,17 @@ export default async function Home() {
         <LeftBar />
         <MainContentHolder>
           <SectionWrapper extraPadding={true}>
-            <SectionTitle title="New Feeds" />
-
-            {/* {feeds.data?.feed?.map((feed: any) => (
-              <DiscussionCard key={feed.id} />
-            ))} */}
-
-            {/* {feeds.data.preferencesFound === false && (
-              [1,2,3,4,5].map((item: any) => (
-                <DiscussionCardSkeleton key={item} />
-              ))
-            )} */}
-
-            {
-              feeds.data.discussions.map((discussion: any) => (
-                  <DiscussionCard key={discussion._id} discussion={discussion} type="manage" />
-              ))
-            }
-
-            {/* <PodcastCard />
-            <DiscussionCard />
-            <DiscussionCard />
-            <DiscussionCard />
-            <PodcastCard />
-            <PodcastCard /> */}
+            <SectionTitle title="Discussions" />
+           {
+            discussions.data.discussions.map((discussion: any) => {
+              let type: "normal" | "manage" | "participant" = "normal"
+              if(discussion.moderator._id ===  discussions.data.user.userId) type = "manage"
+              if(discussion.createdBy._id ===  discussions.data.user.userId) type = "manage"
+              if(discussion.participants.some((participant: any) => participant._id ===  discussions.data.user.userId)) type = "participant"
+              return (
+              <DiscussionCard type={type} discussion={discussion} key={discussion._id} />
+            )})
+           }
           </SectionWrapper>
         </MainContentHolder>
 

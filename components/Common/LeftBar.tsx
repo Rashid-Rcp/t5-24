@@ -11,6 +11,7 @@ import MenuWraper from "./MenuWraper";
 import Devider from "./Divider";
 import MenuTitle from "./MenuTitle";
 import ClubsList from "../Clubs/ClubsList";
+import { IoChatbubblesSharp } from "react-icons/io5";
 
 export default function LeftBar() {
   return (
@@ -18,9 +19,11 @@ export default function LeftBar() {
       <SectionWrapper>
         <MenuWraper>
           <MenuItem Icon={CiHome} text="Home" />
-          <MenuItem Icon={PiChatsCircleThin} text="Discussion" />
-          <MenuItem Icon={PiApplePodcastsLogoThin} text="Podcast" />
+          <MenuItem Icon={PiChatsCircleThin} text="Discussions" />
+          <MenuItem Icon={PiApplePodcastsLogoThin} text="Podcasts" />
           <MenuItem Icon={PiTimerThin} text="Upcoming" />
+          <MenuItem Icon={IoChatbubblesSharp} fill={true} text="Manage Discussions" />
+
         </MenuWraper>
         <Devider />
         <MenuTitle title="CREATE" />

@@ -1,12 +1,29 @@
-export type UserInfo = {
-  fullName: string;
+export type UserBase = {
+  _id: string;
   username: string;
+  profileImage?: string;
+  // fullName?: string;
+};
+
+export type UserFormData = Omit<UserBase, '_id'> & {
+  fullName: string;
+  email: string;
+  password: string;
+  phone?: string;
+  coverImage?: string;
+  about?: string;
+  socialLinks?: any[];
+};
+
+export type UserBasic = UserBase;
+
+export type UserInfo = UserBase & {
+  fullName: string;
   email: string;
   phone?: string;
-  password: string;
-  cover_image?: string;
-  profile_image?: string;
+  coverImage?: string;
   about?: string;
-  social_links?: any[];
+  socialLinks?: any[];
 };
+
 

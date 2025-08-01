@@ -29,7 +29,7 @@ const ProfileCover = () => {
           <h1 className="text-2xl font-bold mb-0  text-t5-black">John Doe</h1>
           <p  className="text-xs text-t5-black mb-1">@john_doe</p>
           <p className="text-sm text-t5-black font-medium mb-1">
-            150 Memberships
+            150 followers
           </p>
 
           <div className="flex items-center gap-4 mt-4">

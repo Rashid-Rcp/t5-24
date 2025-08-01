@@ -29,7 +29,6 @@ const LoginPage = () => {
     mutationFn: (data: LoginData) => axiosInstance.post("/account/login", data),
     onSuccess: (data: any) => {
       if (data.data.success) {
-        console.log('login success');
         router.replace("/");
       } else {
         toast.error(data.data.message, { theme: "colored" });

@@ -4,29 +4,23 @@ import React, { useState } from "react";
 import { useMutation } from '@tanstack/react-query';
 import axiosInstance from '@/utils/axiosInstance';
 import { toast } from 'react-toastify';
-import { UserInfo } from '@/Type/user';
+import { UserFormData } from '@/Type/user';
 import { AiOutlineLoading3Quarters } from 'react-icons/ai';
 import { useRouter } from 'next/navigation';
 
 const RegisterPage = () => {
   const router = useRouter();
-  const [formData, setFormData] = useState<UserInfo>({
+  const [formData, setFormData] = useState<UserFormData>({
     fullName: '',
     username: '',
     email: '',
     password: ''
   });
-  const [errors, setErrors] = useState<UserInfo>({
-    fullName: '',
-    username: '',
-    email: '',
-    password: ''
-  });
+  const [errors, setErrors] = useState<Partial<UserFormData>>({});
 
   const registerMutation = useMutation({
-    mutationFn: (data: UserInfo) => axiosInstance.post('/account', data),
+    mutationFn: (data: UserFormData) => axiosInstance.post('/account', data),
     onSuccess: (data: any) => {
-      console.log(data.data.success);
       if(data.data.success){
         toast.success(data.data.message);
         //set token to local storage

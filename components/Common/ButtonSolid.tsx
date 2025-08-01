@@ -4,16 +4,23 @@ type ButtonSolidProps = {
   text: string;
   count?: number;
   icon?: React.ReactNode;
-  onClick?: () => void;
+  onClick?: (e: React.MouseEvent) => void;
   isActive?: boolean;
   disabled?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 };
 
-export default function ButtonSolid({ text, count, icon, onClick, isActive, disabled = false }: ButtonSolidProps) {
+export default function ButtonSolid({ text, count, icon, size='md', onClick, isActive, disabled = false, }: ButtonSolidProps) {
+  const sizeClasses = {
+    sm: "text-xs px-2 py-1",
+    md: "text-sm px-4 py-1.5",
+    lg: "text-base px-8 py-1.5",
+  };
+
   return (
     <button
       onClick={onClick}
-      className={`relative px-6 py-2 rounded-full border transition-all duration-200 text-sm
+      className={`${sizeClasses[size]} w-fit  relative rounded-full border transition-all duration-200
         ${disabled
           ? 'bg-gray-200 text-gray-500 border-gray-300 cursor-not-allowed hover:bg-gray-200 hover:text-gray-500'
           : isActive 

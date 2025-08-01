@@ -1,9 +1,30 @@
 import React from "react";
 import { IoSearchOutline } from "react-icons/io5";
-import { AiOutlineUser } from "react-icons/ai";
-import { IoNotificationsOutline, IoSettingsOutline } from "react-icons/io5";
+import {
+  dehydrate,
+  HydrationBoundary,
+  QueryClient,
+  useQuery,
+} from "@tanstack/react-query";
 
-const Header: React.FC = () => {
+import IconBar from "./IconBar";
+import fetchUser from "../../utils/query/fetchUser";
+import axiosInstance from "@/utils/axiosInstance";
+import { cookies } from "next/headers";
+import { getHeaderConfig } from "@/utils/headerConfig";
+
+const Header: React.FC = async () => {
+  const queryClient = new QueryClient();
+
+  await queryClient.prefetchQuery({
+    queryKey: ["user"],
+    queryFn: async () => {
+      const config = await getHeaderConfig();
+      const response = await axiosInstance.get("/user/head", config);
+      return response.data;
+    },
+  });
+
   return (
     <>
       <div className="fixed top-0 left-0 right-0 z-50 shadow-md border-b-gray-100 border bg-t5-white">
@@ -28,19 +49,10 @@ const Header: React.FC = () => {
                 />
               </div>
             </div>
-
             {/* Icon Buttons Section */}
-            <div className="w-1/3 lg:w-1/4 flex justify-end items-center space-x-4 text-t5-black">
-              <button className="p-1 rounded-full hover:bg-gray-200 border-gray-500 border">
-                <AiOutlineUser size={25} />
-              </button>
-              <button className="p-1 rounded-full hover:bg-gray-200 border-gray-500 border">
-                <IoNotificationsOutline size={25} />
-              </button>
-              <button className="p-1 rounded-full hover:bg-gray-200 border-gray-500 border">
-                <IoSettingsOutline size={25} />
-              </button>
-            </div>
+            <HydrationBoundary state={dehydrate(queryClient)}>
+              <IconBar />
+            </HydrationBoundary>
           </div>
         </div>
       </div>

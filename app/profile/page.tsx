@@ -14,8 +14,6 @@ import ProfileTabSection from "../../components/Profile/ProfileTabSection";
 
 export default function ProfilePage() {
 
-  
-
   return (
     <>
       <Header />
